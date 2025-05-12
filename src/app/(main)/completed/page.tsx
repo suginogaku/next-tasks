@@ -12,7 +12,7 @@ const CompletedTaskPage = () => {
       <div className="mt-8 flex flex-wrap gap-4">
         <TaskCard />
       </div>
-    </div >
+    </div>
   );
 }
 
