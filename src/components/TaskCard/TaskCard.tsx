@@ -1,8 +1,7 @@
-import { Task, TaskDocument } from "@/models/task"
+import { TaskDocument } from "@/models/task"
 import TaskDeleteButton from "./TaskDeleteButton/TaskDeleteButton"
 import TaskEditButton from "./TaskEditButton/TaskEditButton"
 import React from "react"
-import { TbAsterisk } from "react-icons/tb"
 
 interface TaskCardProps {
   task: TaskDocument
@@ -22,8 +21,8 @@ const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
             {task.isCompleted ? "Completed" : "Incomplete"}
           </div>
           <div className="flex gap-4">
-            <TaskEditButton id={task.id} />
-            <TaskDeleteButton id={task.id} />
+            <TaskEditButton id={task._id as string} />
+            <TaskDeleteButton id={task._id as string} />
           </div>
         </div>
       </div>

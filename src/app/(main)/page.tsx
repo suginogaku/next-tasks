@@ -16,7 +16,6 @@ const getAllTasks = async (): Promise<TaskDocument[]> => {
 
 export default async function MainPage() {
   const allTasks = await getAllTasks();
-
   return (
     <div className="text-gray-800 p-8 h-full overflow-y-auto pb-24">
       <header className="flex items-center justify-between">
@@ -28,7 +27,7 @@ export default async function MainPage() {
       </header>
       <div className="mt-8 flex flex-wrap gap-4">
         {allTasks.map((task) => (
-          <TaskCard key={task.id} task={task} />
+          <TaskCard key={task._id as string} task={task} />
         ))}
       </div>
     </div >
