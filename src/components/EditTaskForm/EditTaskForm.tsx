@@ -2,7 +2,6 @@
 
 import { FormState, updateTask } from '@/actions/task';
 import { TaskDocument } from '@/models/task'
-import { init } from 'next/dist/compiled/webpack/webpack';
 import { useState } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 interface EditTaskFormProps { task: TaskDocument }
@@ -79,6 +78,7 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ task }) => {
             id="isCompleted"
             name="isCompleted"
             className='mr-2 w-4 h-4'
+            checked={isCompleted}
           />
           <label htmlFor="isCompleted" className='text-sm'>タスクを完了にする</label>
         </div>
