@@ -26,7 +26,6 @@ export const createTask = async (state: FormState, formData: FormData) => {
   redirect("/");
 };
 
-
 export const updateTask = async (state: FormState, formData: FormData) => {
   const id = formData.get("id") as string;
   const updateTask: Task = {
@@ -41,6 +40,19 @@ export const updateTask = async (state: FormState, formData: FormData) => {
     await TaskModel.updateOne({ _id: id }, updateTask);
   } catch (error) {
     state.error = "タスクの更新に失敗しました";
+    return state;
+  }
+  redirect("/");
+};
+
+export const deleteTask = async (state: FormState, formData: FormData) => {
+  const id = formData.get("id") as string;
+
+  try {
+    await connectDB();
+    await TaskModel.deleteOne({ _id: id });
+  } catch (error) {
+    state.error = "タスクの削除に失敗しました";
     return state;
   }
   redirect("/");
