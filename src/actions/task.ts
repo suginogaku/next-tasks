@@ -32,7 +32,7 @@ export const updateTask = async (state: FormState, formData: FormData) => {
     title: formData.get("title") as string,
     description: formData.get("description") as string,
     dueDate: formData.get("dueDate") as string,
-    isCompleted: false,
+    isCompleted: Boolean(formData.get("isCompleted")),
   };
 
   try {
