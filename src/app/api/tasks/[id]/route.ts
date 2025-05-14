@@ -2,7 +2,8 @@ import { TaskModel } from "@/models/task";
 import { connectDB } from "@/utils/database";
 import { NextRequest, NextResponse } from "next/server";
 
-export const GET = async (request: NextRequest, { params }: { params: { id: string } }) => {
+export const GET = async (request: NextRequest, props: { params: Promise<{ id: string }> }) => {
+  const params = await props.params;
   try {
     await connectDB();
     const task = await TaskModel.findById(params.id);
